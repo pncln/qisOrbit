@@ -5,6 +5,7 @@ from qiskit.circuit.library import RealAmplitudes
 from qiskit.quantum_info import SparsePauliOp
 from qiskit.quantum_info import Statevector
 from qiskit_aer import AerSimulator
+from qiskit_ibm_runtime.fake_provider import FakeBrisbane
 import numpy as np
 from scipy.optimize import minimize
 from qiskit_aer.noise import (
@@ -24,7 +25,8 @@ from mpl_toolkits.mplot3d import Axes3D
 from qiskit_ibm_runtime import QiskitRuntimeService
 # QiskitRuntimeService.save_account(channel="ibm_quantum", token="f86c0fffd56ce4afc7791a1ed24ae5f9a2eda284f797526dbe5668d20583e3dfd32dd2f5bf56ce07e2996675edb9aa25f922ecc0f605b6494ba12bbe363afe87")
 service = QiskitRuntimeService()
-backend = service.backend("ibm_brisbane")
+# backend = service.backend("ibm_brisbane")
+backend = FakeBrisbane()
 noise_model = NoiseModel.from_backend(backend)
 
 sim = AerSimulator(noise_model=noise_model)
