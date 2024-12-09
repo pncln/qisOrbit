@@ -387,13 +387,13 @@ def extract_classical_state_from_binary(qc, expected_state):
     measured_state = measured_state.replace(' ', '')  # Remove spaces if any
 
     # Debugging output
-    print(f"Measured state (before reversing): {measured_state}")
+    # print(f"Measured state (before reversing): {measured_state}")
 
     # The measured_state may need to be reversed due to endianness
     measured_state = measured_state[::-1]
 
     # Debugging output
-    print(f"Measured state (after reversing): {measured_state}")
+    # print(f"Measured state (after reversing): {measured_state}")
 
     classical_state = []
 
@@ -414,7 +414,7 @@ def extract_classical_state_from_binary(qc, expected_state):
         binary_string = measured_state[bit_start:bit_end][::-1]  # Reverse bits
 
         # Debugging statement
-        print(f"Variable {i}: binary_string='{binary_string}'")
+        # print(f"Variable {i}: binary_string='{binary_string}'")
 
         # Convert binary string to integer
         integer_value = int(binary_string, 2)
